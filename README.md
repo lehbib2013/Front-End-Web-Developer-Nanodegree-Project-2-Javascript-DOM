@@ -1,0 +1,2 @@
+# frontend-project2
+SECOND PROJECT OF MY NANODEGREE
