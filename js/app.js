@@ -19,7 +19,7 @@
  */
 
  document.addEventListener('DOMContentLoaded', function () {
-
+  const headerBar= document.querySelector('header.page__header');
   const sectionMenuList = document.querySelectorAll('section[data-parent=""]');
   const allSectionsOfDocument = document.querySelectorAll('main section');
   const menuReferenceContainer = document.querySelector('#navbar__list');
@@ -53,6 +53,8 @@
   }
   // event listener to the dom itself so
   document.addEventListener('scroll', function () {
+    var scrollTimer = -1;
+    headerBar.style.display='none';
     console.log(allSectionsOfDocument);
     allSectionsOfDocument.forEach((el) => {
       // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
@@ -70,6 +72,13 @@
       }
 
     });
+    /
+    if (scrollTimer != -1)
+        clearTimeout(scrollTimer);
+
+        scrollTimer = setTimeout(function() {
+        scrollFinished(headerBar);
+  }, 500);
   });
 
 });
@@ -110,7 +119,10 @@ function generateMenu(tempMap) {
  * Begin Main Functions
  * 
  */
-
+/** use this helper function to display navbar when scroll event ended (timer reset) */
+ function scrollFinished(el) {
+  el.style.display='block';
+}
 // clear the previous menu selction
 function clearPreviousSelection() {
   const all__menu__links = document.querySelectorAll('a.menu__link');
