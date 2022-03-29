@@ -3,9 +3,13 @@
 This project is my second project for Front End  Developer Nanodegree and it comes to build a javascript bonning experience.
 
 # Getting Started
-
+This project demonstrate an implementation of javascript navigation experience on ES6 like:
+-  selecting an element and altering innerText
+-  Iterating over collection of html elements
+-  dynamically change some of CSS Properties
+-   Responsive design
 # Pererequisites  & Installations
-There are no pererquisities to intall as all needed packages will be available throught link tag in header section.
+There are no pererquisities to intall as all needed packages will be available throught link tag in header section of index html page.
 # Used sources
 ```
 - Udacity courses videos
