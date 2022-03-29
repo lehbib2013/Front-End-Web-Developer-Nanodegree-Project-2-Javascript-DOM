@@ -1,13 +1,22 @@
-# Landing Page Project
+# Motivation for project
 
-## Table of Contents
+This project is my second project for Front End  Developer Nanodegree and it comes to build a javascript bonning experience.
 
-* [Instructions](#instructions)
+# Getting Started
 
-## Instructions
+# Pererequisites  & Installations
+There are no pererquisities to intall as all needed packages will be available throught link tag in header section.
+# Used sources
+```
+- Udacity courses videos
+- tutorials and guides on site : https://www.w3schools.com
+- other links provided in code section in project
+```
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+# Authors
 
-To get started, open `js/app.js` and start building out the app's functionality
+Mohamed Lehbib Ould Youba
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+# Acknowledgments
+
+All thanks to Udacity's instructors of this course as well as for technical mentors for helping me during the work on this project.
