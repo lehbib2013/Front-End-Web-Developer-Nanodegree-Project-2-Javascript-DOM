@@ -72,7 +72,7 @@
       }
 
     });
-    /
+    
     if (scrollTimer != -1)
         clearTimeout(scrollTimer);
 
