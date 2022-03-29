@@ -8,6 +8,7 @@ This project demonstrate an implementation of javascript navigation experience o
 -  Iterating over collection of html elements
 -  dynamically change some of CSS Properties
 -   Responsive design
+-   Implementing a submenu on Javascript generated from html source code (CMS Principales)
 # Pererequisites  & Installations
 There are no pererquisities to intall as all needed packages will be available throught link tag in header section of index html page.
 # Used sources
