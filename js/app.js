@@ -25,13 +25,12 @@
   const menuReferenceContainer = document.querySelector('#navbar__list');
   const adjacentSections = document.querySelectorAll('section:not([data-parent=""])');
   const pageTitle = document.querySelectorAll('.main__hero h1')[0];
-  pageTitle.textContent = 'Main menu';
   let map = new Map();
 
   let tempArray = [];
 
-  console.log('the DOM is ready to be interacted with!');
-  console.log(sectionMenuList);
+  pageTitle.textContent = 'Main menu';
+  
   /** build amp where keys are Ids oftop menuelemts where as values are array objects for submenu elements  */
   for (const section of sectionMenuList) {
     tempArray = [];
@@ -51,10 +50,11 @@
   function deactivateRect(rect) {
     document.querySelector(`#${rect.getAttribute('id')}`).classList.remove('your-active-class');
   }
+
   // event listener to the dom itself so
   document.addEventListener('scroll', function () {
-    var scrollTimer = -1;
-    headerBar.style.display='none';
+    let scrollTimer = -1;
+    /*headerBar.style.display='none';*/
     console.log(allSectionsOfDocument);
     allSectionsOfDocument.forEach((el) => {
       // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
@@ -70,12 +70,10 @@
       } else {
         deactivateRect(el);
       }
-
     });
     
     if (scrollTimer != -1)
         clearTimeout(scrollTimer);
-
         scrollTimer = setTimeout(function() {
         scrollFinished(headerBar);
   }, 500);
@@ -112,8 +110,6 @@ function generateMenu(tempMap) {
   });
   return ulMenuList;
 }
-
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -123,8 +119,9 @@ function generateMenu(tempMap) {
  function scrollFinished(el) {
   el.style.display='block';
 }
+
 // clear the previous menu selction
-function clearPreviousSelection() {
+function clearPreviousSelection(evt) {
   const all__menu__links = document.querySelectorAll('a.menu__link');
   for (let link of all__menu__links) {
     link.classList.remove('clicked-class');
@@ -134,24 +131,32 @@ function clearPreviousSelection() {
 // Add class 'clicked-class' to sectied anchor elemnts when  top or submenu are clicked
 
 document.querySelector('#navbar__list').addEventListener('click', function (evt) {
-  clearPreviousSelection();
+  clearPreviousSelection(evt);
+  const checkboxValue = document.querySelector('#check').checked;
   const partsId = evt.target.id.split('-', 3);
+  ev.preventDefault();
   // check if clicked item is an anchor element and is a parent anchor element was selected
   if (evt.target.nodeName === 'A' && partsId[2] == 0) { // check if we clicked top level link
     // add the clicked-class class to the to menu section
-
     document.querySelector(`#${evt.target.id}`).classList.add('clicked-class');
+    document.querySelector(`#${evt.target.id}`).scrollIntoView({behavior: "smooth", block: "start"});
+    if (checkboxValue === true)  // check if we clicked top level link
+      // add the clicked-class class to the to menu section
+       {
+      document.querySelector('#check').checked = false;
+      
+      }  
+    
   }
   // check if clicked item is an anchor element and is a child anchor element was selected
   if (evt.target.nodeName === 'A' && partsId[2] != '0') { // check if we clicked top level link
     // add the active class to the section
-
     document.querySelector(`#${evt.target.id}`).classList.add('clicked-class');
     document.querySelector(`#link-${partsId[1]}-0`).classList.add('clicked-class');
+    document.querySelector(`#${evt.target.id}`).scrollIntoView({behavior: "smooth", block: "start"});
   }
 });
 // Scroll to anchor ID using scrollTO event
-
 
 /**
  * End Main Functions
