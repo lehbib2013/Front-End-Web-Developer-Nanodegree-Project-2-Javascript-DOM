@@ -134,12 +134,13 @@ document.querySelector('#navbar__list').addEventListener('click', function (evt)
   clearPreviousSelection(evt);
   const checkboxValue = document.querySelector('#check').checked;
   const partsId = evt.target.id.split('-', 3);
-  ev.preventDefault();
+  evt.preventDefault();
+  console.log(partsId[2]);
   // check if clicked item is an anchor element and is a parent anchor element was selected
   if (evt.target.nodeName === 'A' && partsId[2] == 0) { // check if we clicked top level link
     // add the clicked-class class to the to menu section
     document.querySelector(`#${evt.target.id}`).classList.add('clicked-class');
-    document.querySelector(`#${evt.target.id}`).scrollIntoView({behavior: "smooth", block: "start"});
+    document.querySelector(`#${partsId[1]}`).scrollIntoView({behavior: "smooth", block: "start"});
     if (checkboxValue === true)  // check if we clicked top level link
       // add the clicked-class class to the to menu section
        {
@@ -153,7 +154,7 @@ document.querySelector('#navbar__list').addEventListener('click', function (evt)
     // add the active class to the section
     document.querySelector(`#${evt.target.id}`).classList.add('clicked-class');
     document.querySelector(`#link-${partsId[1]}-0`).classList.add('clicked-class');
-    document.querySelector(`#${evt.target.id}`).scrollIntoView({behavior: "smooth", block: "start"});
+    document.querySelector(`#${partsId[2]}`).scrollIntoView({behavior: "smooth", block: "start"});
   }
 });
 // Scroll to anchor ID using scrollTO event
